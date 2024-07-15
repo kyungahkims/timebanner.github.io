@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="22" viewBox="0 0 32 22">
+    <defs>
+        <linearGradient id="gubmfcrl3a" x1=".916" y1=".919" x2=".252" y2=".163" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#6b22ff"/>
+            <stop offset=".506" stop-color="#b80de1"/>
+            <stop offset="1" stop-color="#ff1d1d"/>
+        </linearGradient>
+        <clipPath id="63yhgxp51b">
+            <path data-name="패스 34" d="M1 1v4.627c.076 0 .149-.011.225-.011a5 5 0 0 1 0 10c-.076 0-.15-.008-.225-.011v4.627h28.849V1z" transform="translate(-.547 -.547)" style="fill:#ff1d1d"/>
+        </clipPath>
+    </defs>
+    <g data-name="그룹 17">
+        <path data-name="사각형 31" style="fill:transparent" d="M0 0h32v22H0z"/>
+        <path data-name="패스 30" d="M1 1v4.627c.076 0 .149-.011.225-.011a5 5 0 0 1 0 10c-.076 0-.15-.008-.225-.011v4.627h28.849V1z" transform="rotate(180 15.65 11.024)" style="fill:url(#gubmfcrl3a)"/>
+        <path data-name="패스 31" d="M1 1v4.627c.076 0 .149-.011.225-.011a5 5 0 0 1 0 10c-.076 0-.15-.008-.225-.011v4.627h28.849V1z" transform="rotate(180 15.65 11.024)" style="stroke-miterlimit:10;stroke-width:1.4px;fill:none;stroke:#fff"/>
+        <g style="clip-path:url(#63yhgxp51b)" transform="rotate(180 15.377 10.75)">
+            <path data-name="선 1" transform="translate(8.911 .453)" style="stroke-width:2px;stroke-dasharray:2 4;stroke-linecap:round;stroke-linejoin:round;fill:none;stroke:#fff" d="M0 0v19.233"/>
+        </g>
+        <g data-name="그룹 18">
+            <path data-name="패스 32" d="M35.17 14.992a1.746 1.746 0 1 1-1.23-2.142 1.746 1.746 0 0 1 1.23 2.142z" transform="rotate(180 24.065 14.251)" style="stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:round;fill:none;stroke:#fff"/>
+            <path data-name="패스 33" d="M47.985 26.939a1.771 1.771 0 1 1-1.247-2.172 1.77 1.77 0 0 1 1.247 2.172z" transform="rotate(180 27.559 17.512)" style="stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:round;fill:none;stroke:#fff"/>
+            <path data-name="선 2" transform="rotate(180 7.715 7.527)" style="stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:round;fill:none;stroke:#fff" d="M0 7.347 7.237 0"/>
+        </g>
+    </g>
+</svg>

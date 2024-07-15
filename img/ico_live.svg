@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="59.999" height="28" viewBox="0 0 59.999 28">
+    <path data-name="합치기 2" d="M-49-8863.895a14 14 0 0 1 14-14 13.955 13.955 0 0 1 9.8 4H2a9 9 0 0 1 9 9 9 9 0 0 1-9 9h-25.508a13.985 13.985 0 0 1-11.492 6 14 14 0 0 1-14-14z" transform="translate(48.999 8877.896)" style="fill:#ff2121"/>
+    <text transform="translate(24.999 18.001)" style="font-size:13px;font-family:Pretendard-Bold,Pretendard;font-weight:700;fill:#fff"><tspan x="0" y="0">LIVE</tspan></text>
+    <g data-name="그룹 100" transform="translate(4.701 5.773)">
+        <circle data-name="타원 11" cx="8.5" cy="8.5" r="8.5" transform="translate(.298 .229)" style="fill:#fff"/>
+        <path data-name="다각형 2" d="m4.331 0 4.331 7.183H0z" transform="rotate(90 4.33 9.01)" style="fill:#ff2121"/>
+    </g>
+</svg>

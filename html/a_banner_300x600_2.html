@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+	<title>타임배너 300x600</title>
+	<link rel="stylesheet" type="text/css" href="//img.mobon.net/Frtb/common/css/mobon_reset.css?201706292">
+	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/jquery.js"></script>
+	<script type="text/javascript" src="//img.mobon.net/js/mobonStorage.js"></script>
+	<!--[if lt IE 9]
+	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/respond.js"></script>
+	<![endif]-->
+	<!--[if lt IE 8]
+	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/html5.js"></script>
+	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/ie7.js"></script>
+	<link type="text/css" rel="stylesheet" href="//img.mobon.net/Frtb/common/css/ie7.css">
+	<![endif]-->
+	<script type="text/javascript" src="//img.mobon.net/newAd/common/webutil.js"></script>
+	<script type="text/javascript" src="//img.mobon.net/Frtb/js/frame_default_script_S.js"></script>
+	<!-- header END -->
+	<script type="text/javascript" src="//img.mobon.net/js/bounceRate.js"></script>
+	<link rel="stylesheet" type="text/css" href="//img.mobon.net/Frtb/css/frame_point.css">
+
+	<!-- 시간 플러그인 추가 -->
+	<link href="https://unpkg.com/@pqina/flip/dist/flip.min.css" rel="stylesheet">
+	<script src="https://unpkg.com/@pqina/flip/dist/flip.min.js"></script>
+
+	<script>
+		var wp_json = ('{{wp_json}}');
+		var wp_json = (
+			'{"client":[{"logo":16,"payLink":"http://www.naver.com","memberChk":"N","today_point":"4","total_point":"100","data":[{"logo":"bibiesong-1216726537000.png","price":"63000", "prdt_prmct":"60000", "dc_rate":"50", "pnm":"[핫딜]츠링데님원피스","t0":"","purl":"/servlet/drc?no=1183&kno=0&s=82&adgubun=SR&gb=SR&sc=89c67bfff3c645982ab17fa212af9c8b&mc=82&userid=bibiesong&u=bibiesong&product=nor&slink=http%3A%2F%2Fwww.bibiesong.com%2Fproduct%2Fdetail.html%3Fproduct_no%3D1183%26cate_no%3D27%26display_group%3D1&rtb_param=WY09E07C01W061_0_1_CW_A&freqLog=19&viewTime=_82_1434604974429_383","img":"https://www.dabagirl.co.kr/web/product/big/202105/04ff60dbb9fa51e3c47fc8e4bdc27c08.jpg","imageSqreYn":"N","pcode":"1183","site_name":"비비에송","logo2":"bibiesong-1502410438000.png","site_desc1":"패션은 지금 당장 다바걸!","site_desc2":"다바걸은 옷 하나만 사도 무료배송!","site_desc3":"신규 가입하고 다양한 혜택 받자! 최대 총 1만원 3종 쿠폰 발급","site_desc4":"사이트설명4", "advrtsReplcNm":"", "monetaryUnit":"$","cta_text":"바로가기","site_title":"다바걸","time_product_sale_price":"1200000","time_proudct_price":"1300000","time_date":"202407171900"}],"length":16,"target":"UM","site_title":"다바걸","oslink":""}]} '
+		);
+		base_default_script_type0();
+
+		let addData = $.parseJSON(wp_json);
+		let stime = addData.client[0].data[0].time_date;
+		let year = parseInt(stime.substring(0, 4));
+		let month = parseInt(stime.substring(4, 6)) - 1;
+		let day = parseInt(stime.substring(6, 8));
+		let hour = parseInt(stime.substring(8, 10));
+		let minute = parseInt(stime.substring(10, 12));
+
+		/* tickInit */
+		function tickInit(tick) {
+			let tickTime = new Date(year, month, day, hour, minute);
+			console.log(tickTime);
+			let counter = Tick.count.down(tickTime, {
+				format: ['h', 'm', 's']
+			});
+
+			counter.onupdate = function (value) {
+				tick.value = value;
+			};
+		}
+
+		/* tickInit2 */
+		function tickInit2(tick) {
+			let tickTime = new Date(year, month, day, hour + 1, minute);
+			let counter = Tick.count.down(tickTime, {
+				format: ['h', 'm', 's']
+			});
+
+			counter.onupdate = function (value) {
+				tick.value = value;
+			};
+		}
+
+		$(window).load(function () {
+			let addData = $.parseJSON(wp_json);
+			$.each(addData.client[0].data, function (i, obj) {
+				let product_sale_price = Number(obj.time_product_sale_price).toLocaleString();
+				let proudct_price = Number(obj.time_proudct_price).toLocaleString();
+				$('.title_text1').text(obj.time_title1);
+				$('.title_text2').text(obj.time_title2);
+				$('.time_product_name').text(obj.time_product_name);
+				$('.time_proudct_price').text(proudct_price);
+				$('.time_product_sale_price').text(product_sale_price);
+				$('.time_product_sale_rate').text(obj.time_product_sale_rate);
+
+				if (obj.time_title_use_yn == "N") {
+					$('.time_title_use_yn').remove();
+				}
+				if (obj.time_product_use_yn == "N") {
+					$('.time_product_use_yn').remove();
+				}
+				stime = obj.time_date;
+			});
+
+			if (stime) {
+				var time_year = stime.substr(0, 4);
+				var time_month = stime.substr(4, 2);
+				var time_day = stime.substr(6, 2);
+				var time_hour = stime.substr(8, 2);
+				var time_min = stime.substr(10, 2);
+
+				var hour = parseInt(time_hour, 10);
+				var period = "오전";
+				if (hour >= 12) {
+					period = "오후";
+					if (hour > 12) {
+						hour -= 12;
+					}
+				} else if (hour === 0) {
+					hour = 12;
+				}
+			}
+
+			let time = time_year + "-" + time_month + "-" + time_day + "T" + time_hour + ":" + time_min + ":00+0900";
+			let d_day = new Date(time).getTime();
+
+			// 날짜구하기
+			let time_date = time_year + "-" + time_month + "-" + time_day;
+			let d_date = new Date(time_date);
+			d_date = d_date.getTime();
+
+			//일 시간구하기
+			let current_date = new Date();
+			let current_day = current_date.getDate().toString();
+			current_day = current_day.length === 1 ? "0" + current_day : current_day;
+
+			if (time_day === current_day) {
+				time_day = "오늘 ";
+			} else {
+				time_day = time_day + "일 ";
+			}
+
+			time_day = time_day.startsWith('0') ? time_day.substr(1) : time_day;
+			if (time_min === "00") {
+				time_min = "";
+			} else {
+				time_min = time_min.startsWith('0') ? time_min.substr(1) : time_min;
+				time_min = time_min + "분";
+			}
+			let s_date = time_day + period + " " + hour + "시 " + time_min;
+			$('.s_date').text(s_date);
+
+			let interval = setInterval(function () {
+				let today = new Date();
+				today = today.getTime();
+
+				// 날짜구하기
+				let gap_date = d_date - today;
+				let day = Math.ceil(gap_date / (1000 * 60 * 60 * 24));
+				if (day < 1) {
+					day = "0";
+				}
+				// 시간구하기
+				let gap = d_day - today;
+
+				let hour = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) + (day * 24));
+				let min = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+				let sec = Math.floor((gap % (1000 * 60)) / 1000);
+
+				if (hour < 10) {
+					if (hour < 0) {
+						hour = 0;
+					}
+					hour = "0" + hour;
+				}
+
+				hour_tens = hour.toString().substr(0, 1);
+				hour_ones = hour.toString().substr(1, 2);
+
+				if (min < 10) {
+					if (min < 0) {
+						min = 0;
+					}
+					min = "0" + min;
+				}
+
+				min_tens = min.toString().substr(0, 1);
+				min_ones = min.toString().substr(1, 2);
+
+				if (sec < 10) {
+					if (sec < 0) {
+						sec = 0;
+					}
+					sec = "0" + sec;
+				}
+				sec_tens = sec.toString().substr(0, 1);
+				sec_ones = sec.toString().substr(1, 2);
+
+				$(".day").html(day);
+				$(".hour_ones").html(hour_ones);
+				$(".hour_tens").html(hour_tens);
+				$(".min_ones").html(min_ones);
+				$(".min_tens").html(min_tens);
+				$(".sec_ones").html(sec_ones);
+				$(".sec_tens").html(sec_tens);
+
+
+				ctime = hour + ":" + min + ":" + sec;
+				$(".ctime").html(ctime);
+
+				if (ctime == "00:00:00") {
+					clearInterval(interval);
+
+					$(".active").css("display", "flex");
+					$(".no_active").css("display", "none");
+				}
+			}, 1000);
+		});
+	</script>
+</head>
+<style>
+	/* font */
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;900&family=Poppins&display=swap');
+	@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+	/* Normalize */
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	/* wrap */
+	.wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+		width: 300px;
+		height: 600px;
+		font-family: Pretendard;
+		color: #000;
+		overflow: hidden;
+	}
+
+	.wrap::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		z-index: -1;
+		width: 100%;
+		height: 290px;
+		background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 61%);
+	}
+
+	.banner_header {
+		flex: 1;
+		width: 100%;
+		text-align: center;
+	}
+
+	.live {
+		position: relative;
+		width: 70px;
+		height: 26px;
+		color: #fff;
+		margin: 26px auto 12px;
+		transform: skew(-3deg, -3deg);
+		background-image: linear-gradient(96deg, #6b22ff -3%, #b80de1 48%, #ff1d1d 99%);
+		background-size: 200% 200%;
+		animation: wave1 1.5s ease infinite;
+	}
+
+	@keyframes wave1 {
+		0% {
+			background-position: 0% 50%;
+			transform: skew(-3deg, -3deg) scale(1);
+		}
+
+		25% {
+			background-position: 50% 50%;
+			transform: skew(-3deg, -3deg) scale(1.1);
+		}
+
+		50% {
+			background-position: 100% 50%;
+			transform: skew(-3deg, -3deg) scale(1);
+		}
+
+		75% {
+			background-position: 50% 50%;
+			transform: skew(-3deg, -3deg) scale(1.05);
+			;
+		}
+
+		100% {
+			background-position: 0% 50%;
+			transform: skew(-3deg, -3deg) scale(1);
+		}
+	}
+
+	.live span {
+		position: absolute;
+		top: 4px;
+		left: 17px;
+		transform: skew(3deg, 3deg);
+		font-family: "Montserrat", sans-serif;
+		font-size: 16px;
+		font-weight: 500;
+	}
+
+	h1 {
+		font-size: 32px;
+		font-weight: bold;
+		line-height: 1.19;
+		color: #fff;
+		margin-bottom: 8px;
+	}
+
+	.state_wrap {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.state {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		height: 28px;
+		font-size: 16px;
+		color: #fff;
+		padding: 4px 6px;
+		background-color: #ff1d1d;
+	}
+
+	.state::after {
+		content: "";
+		display: inline-block;
+		width: 27px;
+		height: 26px;
+		background: url('../img/ico_alert.png') no-repeat center;
+		margin-left: 3px;
+	}
+
+	.state_wrap.no_active span:nth-child(1) {
+		background-color: #7320fc;
+		margin-right: 10px;
+	}
+
+	.state_wrap.no_active span:nth-child(1)::after {
+		width: auto;
+		background: none;
+	}
+
+	.state_wrap.no_active span:nth-child(2)::after {
+		background: url('../img/ico_alert2.png') no-repeat center;
+	}
+
+	.banner_img {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -2;
+	}
+
+	.banner_body {
+		width: 100%;
+	}
+
+	.box {
+		font-size: 12px;
+		background-color: rgba(255, 255, 255, 0.8);
+		padding: 12px 10px 14px 10px;
+		margin: 10px 15px;
+	}
+
+	.box p {
+		font-size: 14px;
+		font-weight: 500;
+		white-space: wrap;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		overflow: hidden;
+	}
+
+	.price_wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 3px;
+	}
+
+	.price_wrap::after {
+		content: "";
+		position: relative;
+		top: 3px;
+		width: 32px;
+		height: 22px;
+		background: url('../img/ico_cp.svg') no-repeat center;
+	}
+
+	.red {
+		font-size: 18px;
+		font-weight: bold;
+		color: #ff1d1d;
+	}
+
+	.price {
+		font-size: 18px;
+		font-weight: bold;
+		margin-left: 4px;
+	}
+
+	.before_price {
+		font-size: 12px;
+		color: #9f9f9f;
+		text-decoration: line-through;
+		margin-left: 3px;
+	}
+
+	.live_go {
+		height: 65px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		/* font-size: 30px; */
+		font-weight: 600;
+		color: #fff;
+		background-image: linear-gradient(95deg, #6b22ff 0%, #b80de1 45%, #ff1d1d 87%);
+		background-size: 200% 200%;
+		animation: wave2 1.5s ease infinite;
+	}
+
+	@keyframes wave2 {
+		0% {
+			background-position: 0% 50%;
+		}
+
+		25% {
+			background-position: 50% 50%;
+		}
+
+		50% {
+			background-position: 100% 50%;
+		}
+
+		75% {
+			background-position: 50% 50%;
+		}
+
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	/* .live_go.no_active {
+		font-size: 34px;
+		border: 1px solid red;
+	}
+ */
+	.live_go .s_time {
+		font-weight: 300;
+		/* 새로운 수정 */
+		font-size: 18px;
+		margin-right: 10px;
+
+	}
+
+	.active {
+		display: none;
+	}
+
+	.tick>div {
+		column-gap: 12px;
+	}
+
+	.tick-flip {
+		white-space: normal !important;
+	}
+
+	.tick-group {
+		position: relative;
+	}
+
+	.tick-group:not(:last-child)::after {
+		position: absolute;
+		top: 6px;
+		right: -9px;
+		font-size: 20px;
+		content: ":";
+	}
+
+	.tick .tick-credits {
+		display: none;
+	}
+
+	.tick-flip {
+		max-width: 53px !important;
+		min-width: 53px !important;
+		max-height: 43px !important;
+		min-height: 43px !important;
+		font-family: Pretendard !important;
+		font-size: 31px !important;
+		font-weight: 600 !important;
+		font-weight: bold !important;
+		letter-spacing: normal;
+		text-indent: 0;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	.tick-flip-shadow {
+		box-shadow: none;
+	}
+
+	.tick-group:nth-child(1) .tick-flip-panel {
+		color: #851bf5;
+	}
+
+	.tick-group:nth-child(2) .tick-flip-panel {
+		color: #d8148b;
+	}
+
+	.tick-group:nth-child(3) .tick-flip-panel {
+		color: #ff1d1d;
+
+	}
+
+	.tick-flip-panel {
+		background-color: #fff;
+	}
+
+	.tick-flip-panel-back:after {
+		background-image: url('../img/img_card2.png');
+		z-index: -1;
+	}
+</style>
+
+<body>
+	<div class="wrap click0">
+		<div class="banner_header">
+			<div class="live"><span>LIVE</span></div>
+			<h1 class="time_title_use_yn"><span class="title_text1">아르기닌으로</span><br><span class="title_text2">활기찬 하루!</span>
+			</h1>
+			<!-- 방송 .active || .no_active -->
+			<div class="state_wrap active"><span class="state">방송 중</span></div>
+			<div class="state_wrap no_active"><span class="state s_date"></span><span class="state">LIVE 알림예약</span></div>
+		</div>
+		<div class="banner_img obj0_img"></div>
+		<div class="banner_body">
+			<div class="box time_product_use_yn">
+				<p class="time_product_name">익스트림 트리플 아르기닌 6200 30포 x3 익스트림 트리플 아르기닌 6200 30포 x3</p>
+				<div class="price_wrap">
+					<div><span class="red"><span class="time_product_sale_rate">65</span>%</span><span
+							class="price time_product_sale_price">45,600</span>원<span class="before_price"><span
+								class="time_proudct_price">109,000</span>원</span></div>
+				</div>
+			</div>
+
+			<!-- 방송 .active || .no_active -->
+			<!-- <div class="live_go active">라이브방송 바로가기</div> -->
+			<div class="live_go active"><span class="s_time">방송종료</span>
+				<div class="tick" data-did-init="tickInit2">
+					<div data-repeat="true" data-layout="horizontal fit" data-transform="preset(h, m, s) -> delay">
+						<div class="tick-group">
+							<div data-key="value" data-transform="pad(00)" data-view="flip">
+								<span>dds</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="live_go no_active"><span class="s_time">방송시작</span>
+				<div class="tick" data-did-init="tickInit">
+					<div data-repeat="true" data-layout="horizontal fit" data-transform="preset(h, m, s) -> delay">
+						<div class="tick-group">
+							<div data-key="value" data-transform="pad(00)" data-view="flip">
+								<span>dds</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="tick" data-did-init="handleTickInit">
+					<div data-repeat="true" data-layout="horizontal fit" data-transform="preset(h, m, s) -> delay">
+						<div class="tick-group">
+							<div data-key="value" data-repeat="true" data-transform="pad(00) -> split -> delay">
+								<span data-view="flip"></span>
+							</div>
+						</div>
+					</div>
+				</div> -->
+		</div>
+	</div>
+</body>
+
+</html>
