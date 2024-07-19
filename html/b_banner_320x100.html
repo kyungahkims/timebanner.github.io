@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+	<title>320x100</title>
+	<link rel="stylesheet" type="text/css" href="//img.mobon.net/Frtb/common/css/mobon_reset.css?201706292">
+	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/jquery.js"></script>
+	<script type="text/javascript" src="//img.mobon.net/js/mobonStorage.js"></script>
+	<!--[if lt IE 9]
+	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/respond.js"></script>
+	<![endif]-->
+	<!--[if lt IE 8]
+	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/html5.js"></script>
+	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/ie7.js"></script>
+	<link type="text/css" rel="stylesheet" href="//img.mobon.net/Frtb/common/css/ie7.css">
+	<![endif]-->
+	<script type="text/javascript" src="//img.mobon.net/newAd/common/webutil.js"></script>
+	<script type="text/javascript" src="//img.mobon.net/Frtb/js/frame_default_script_S.js"></script>
+	<!-- header END -->
+	<script type="text/javascript" src="//img.mobon.net/js/bounceRate.js"></script>
+	<link rel="stylesheet" type="text/css" href="//img.mobon.net/Frtb/css/frame_point.css">
+
+	<!-- 시간 플러그인 추가 -->
+	<link href="https://unpkg.com/@pqina/flip/dist/flip.min.css" rel="stylesheet">
+	<script src="https://unpkg.com/@pqina/flip/dist/flip.min.js"></script>
+</head>
+<style>
+	/* font */
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;900&family=Poppins&display=swap');
+	@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+	/* Normalize */
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	/* wrap */
+	.wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 320px;
+		height: 100px;
+		font-family: Pretendard;
+		color: #000;
+		overflow: hidden;
+	}
+
+	.banner_body {
+		flex: 1;
+	}
+
+	.box {
+		height: 42px;
+		font-size: 10px;
+		margin: 10px 0 10px 10px;
+	}
+
+	h1 {
+		display: flex;
+		align-items: center;
+		font-size: 18px;
+		font-weight: bold;
+		color: #000;
+	}
+
+	.box p {
+		font-size: 18px;
+		font-weight: bold;
+		color: #fff;
+		white-space: wrap;
+		display: none;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		overflow: hidden;
+	}
+
+	h1::after {
+		content: "";
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		background: url('../img/ico_alert.png') no-repeat center/contain;
+	}
+
+	h1.no_active::after {
+		background: url('../img/ico_alert2.png') no-repeat center/contain;
+	}
+
+	.price_wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: #000;
+		margin-top: 2px;
+	}
+
+	.red {
+		font-size: 16px;
+		font-weight: bold;
+		color: #ff1d1d;
+	}
+
+	.price {
+		font-size: 16px;
+		font-weight: bold;
+		color: #000;
+		margin-left: 4px;
+		margin-right: 1px;
+	}
+
+	.live_go {
+		height: 38px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 600;
+		color: #fff;
+		background-image: linear-gradient(95deg, #6b22ff 0%, #b80de1 45%, #ff1d1d 87%);
+		background-size: 200% 200%;
+		animation: wave2 1.5s ease infinite;
+	}
+
+	@keyframes wave2 {
+		0% {
+			background-position: 0% 50%;
+		}
+
+		25% {
+			background-position: 50% 50%;
+		}
+
+		50% {
+			background-position: 100% 50%;
+		}
+
+		75% {
+			background-position: 50% 50%;
+		}
+
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	.live_go .s_time {
+		font-size: 14px;
+		font-weight: 300;
+		margin-right: 11px;
+	}
+
+	.banner_img {
+		position: relative;
+		width: 100px;
+		height: 100%;
+	}
+
+	.live {
+		position: relative;
+		height: 100%;
+	}
+
+	.live img {
+		position: absolute;
+		max-width: 49px;
+		bottom: 11px;
+		left: 50%;
+		transform: translateX(-50%);
+		animation: live 1s ease-in Infinite Alternate;
+	}
+
+	@keyframes live {
+		0% {
+			bottom: 11px;
+			transform: translateX(-50%) scale(1);
+		}
+
+		20% {
+			bottom: 5px;
+			transform: translateX(-50%) scale(1);
+		}
+
+		40% {
+			bottom: 11px;
+			transform: translateX(-50%) scale(1);
+		}
+
+		60% {
+			bottom: 11px;
+			transform: translateX(-50%) scale(1);
+		}
+
+		to {
+			bottom: 5px;
+			transform: translateX(-50%) scale(1.05);
+		}
+	}
+
+	.active {
+		display: none;
+	}
+
+	/* tick */
+	.tick>div {
+		column-gap: 8px;
+	}
+
+	.tick-flip {
+		white-space: normal !important;
+	}
+
+	.tick-group {
+		position: relative;
+	}
+
+	.tick-group:not(:last-child)::after {
+		position: absolute;
+		top: 5px;
+		right: -6px;
+		font-size: 13px;
+		content: ":";
+	}
+
+	.tick .tick-credits {
+		display: none;
+	}
+
+	.tick-flip {
+		max-width: 36px !important;
+		min-width: 36px !important;
+		max-height: 29px !important;
+		min-height: 29px !important;
+		font-family: Pretendard !important;
+		font-size: 21px !important;
+		font-weight: 600 !important;
+		letter-spacing: normal;
+		text-indent: 0;
+		border-radius: 7px;
+		overflow: hidden;
+	}
+
+	.tick-flip-shadow {
+		box-shadow: none;
+	}
+
+	.tick-group:nth-child(1) .tick-flip-panel {
+		color: #851bf5;
+	}
+
+	.tick-group:nth-child(2) .tick-flip-panel {
+		color: #d8148b;
+	}
+
+	.tick-group:nth-child(3) .tick-flip-panel {
+		color: #ff1d1d;
+	}
+
+	.tick-flip-panel {
+		background-color: #fff;
+	}
+
+	.tick-flip-panel-back:after {
+		background-image: url('../img/img_card2.png');
+		background-size: cover;
+		z-index: -1;
+	}
+</style>
+
+<body>
+	<div class="wrap click0">
+		<div class="banner_body">
+			<div class="box">
+				<!-- 방송 .active || .no_active -->
+				<h1 class="active time_title_use_yn"><span class="title_text1">캠핑의자</span>&nbsp;<span class="title_text2">여기서사면
+						특가!</span></h1>
+				<h1 class="no_active time_title_use_yn"><span class="title_text1">캠핑의자</span>&nbsp;<span
+						class="title_text2">여기서사면 특가!</span></h1>
+				<div class=" time_product_use_yn">
+					<p class="time_product_name">상품명상품명상품명상품명상품명상품명상품명</p>
+					<div class="price_wrap">
+						<div><span class="red"><span class="time_product_sale_rate">65</span>%</span><span
+								class="price time_product_sale_price">45,600</span>원</div>
+					</div>
+				</div>
+			</div>
+			<!-- 방송 .active || .no_active -->
+			<div class="live_go active"><span class="s_time">방송종료</span>
+				<div class="tick" data-did-init="tickInit2">
+					<div data-repeat="true" data-layout="horizontal fit" data-transform="preset(h, m, s) -> delay">
+						<div class="tick-group">
+							<div data-key="value" data-transform="pad(00)" data-view="flip">
+								<span>dds</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="live_go no_active"><span class="s_time">방송시작</span>
+				<div class="tick" data-did-init="tickInit">
+					<div data-repeat="true" data-layout="horizontal fit" data-transform="preset(h, m, s) -> delay">
+						<div class="tick-group">
+							<div data-key="value" data-transform="pad(00)" data-view="flip">
+								<span>dds</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="banner_img obj0_img">
+			<div class="live"><img src="../img/live_logo2.svg" alt="쇼핑라이브"></div>
+		</div>
+	</div>
+	<script src="../js/frame_time.js"></script>
+</body>
+
+</html>
