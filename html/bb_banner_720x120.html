@@ -5,7 +5,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-	<title>300x250</title>
+	<title>720x120</title>
 	<link rel="stylesheet" type="text/css" href="//img.mobon.net/Frtb/common/css/mobon_reset.css?201706292">
 	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/jquery.js"></script>
 	<script type="text/javascript" src="//img.mobon.net/js/mobonStorage.js"></script>
@@ -29,6 +29,7 @@
 </head>
 <style>
 	/* font */
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;900&family=Poppins&display=swap');
 	@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 	/* Normalize */
@@ -40,47 +41,48 @@
 
 	/* wrap */
 	.wrap {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		flex-direction: column;
-		position: relative;
-		width: 300px;
-		height: 250px;
+		width: 720px;
+		height: 120px;
 		font-family: Pretendard;
 		color: #000;
 		overflow: hidden;
 	}
 
-	.wrap::before {
-		content: "";
+	.banner_img {
 		position: absolute;
-		bottom: 40px;
-		z-index: -1;
+		top: 0;
 		width: 100%;
-		height: 86px;
-		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) 78%);
+		height: 100%;
+		z-index: -2;
 	}
 
-	.banner_header {
+	.banner_body {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
-		align-items: flex-start;
-		width: 100%;
-		text-align: center;
-		text-align: right;
-		padding: 10px;
-	}
-
-	.live {
-		position: relative;
+		flex: 1;
 		height: 100%;
 	}
 
+	.box {
+		flex: 1;
+		font-size: 15px;
+		padding: 15px 0 11px 20px;
+	}
+
+	.label_wrap {
+		display: flex;
+		margin-bottom: 5px;
+	}
+
 	.live img {
-		position: absolute;
-		top: 0;
-		max-width: 80px;
+		position: relative;
+		max-width: 71px;
+		margin-right: 4px;
 		animation: live 1s ease-in Infinite Alternate;
 	}
 
@@ -91,7 +93,7 @@
 		}
 
 		20% {
-			top: -5px;
+			top: -10px;
 			transform: scale(1);
 		}
 
@@ -106,96 +108,81 @@
 		}
 
 		to {
-			top: -5px;
-			transform: scale(1.05);
+			top: 0px;
+			transform: scale(1.1);
 		}
+	}
+
+	h1 {
+		font-size: 28px;
+		font-weight: bold;
+		color: #000;
+	}
+
+	.price_wrap {
+		margin-top: 2px;
+	}
+
+	.red {
+		font-size: 24px;
+		font-weight: bold;
+		color: #ff1d1d;
+	}
+
+	.price {
+		font-size: 24px;
+		font-weight: bold;
+		color: #000;
+		margin-left: 5px;
+		margin-right: 2px;
+	}
+
+	.state_wrap {
+		position: absolute;
+		right: 28px;
+		bottom: 10px;
 	}
 
 	.state {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 24px;
-		font-size: 12px;
+		height: 21px;
+		font-size: 10px;
 		color: #fff;
-		padding: 5px 8px;
+		padding: 4px 5px;
 		background-color: #ff1d1d;
 	}
 
 	.state::after {
 		content: "";
 		display: inline-block;
-		width: 20px;
-		height: 22px;
+		width: 18px;
+		height: 20px;
 		background: url('../img/ico_alert.png') no-repeat center/contain;
-		margin-left: 3px;
+		margin-left: 2px;
 	}
 
-	.state_wrap.no_active span:nth-child(1) {
-		display: inline-flex;
+	.label_wrap .no_active span:nth-child(1) {
 		background-color: #7320fc;
-		margin-bottom: 6px;
 	}
 
-	.state_wrap.no_active span:nth-child(1)::after {
+	.label_wrap .no_active span:nth-child(1)::after {
 		width: auto;
 		background: none;
 	}
 
-	.state_wrap.no_active span:nth-child(2)::after {
+	.state_wrap.no_active span:nth-child(1)::after {
 		background: url('../img/ico_alert2.png') no-repeat center/contain;
 	}
 
-	.banner_img {
-		position: absolute;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -2;
-	}
-
-	.banner_body {
-		width: 100%;
-	}
-
-	.box {
-		font-size: 12px;
-		margin: 10px 15px;
-	}
-
-	h1 {
-		font-size: 22px;
-		font-weight: bold;
-		color: #fff;
-	}
-
-	.price_wrap {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		color: #fff;
-		margin-top: 3px;
-	}
-
-	.red {
-		font-size: 16px;
-		font-weight: bold;
-		color: #ff1d1d;
-	}
-
-	.price {
-		font-size: 16px;
-		font-weight: bold;
-		color: #fff;
-		margin-left: 3px;
-		margin-right: 2px;
-	}
-
 	.live_go {
-		height: 48px;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		width: 262px;
+		height: 100%;
 		font-weight: 600;
 		color: #fff;
 		background-image: linear-gradient(95deg, #6b22ff 0%, #b80de1 45%, #ff1d1d 87%);
@@ -226,9 +213,9 @@
 	}
 
 	.live_go .s_time {
-		font-size: 16px;
+		font-size: 22px;
 		font-weight: 300;
-		margin-right: 10px;
+		margin-bottom: 10px;
 	}
 
 	.active {
@@ -237,7 +224,7 @@
 
 	/* tick */
 	.tick>div {
-		column-gap: 9px;
+		column-gap: 10px;
 	}
 
 	.tick-flip {
@@ -250,9 +237,9 @@
 
 	.tick-group:not(:last-child)::after {
 		position: absolute;
-		top: 5px;
-		right: -7px;
-		font-size: 16px;
+		top: 7px;
+		right: -8px;
+		font-size: 25px;
 		content: ":";
 	}
 
@@ -261,16 +248,16 @@
 	}
 
 	.tick-flip {
-		max-width: 41px !important;
-		min-width: 41px !important;
-		max-height: 33px !important;
-		min-height: 33px !important;
+		max-width: 68px !important;
+		min-width: 68px !important;
+		max-height: 55px !important;
+		min-height: 55px !important;
 		font-family: Pretendard !important;
-		font-size: 23px !important;
+		font-size: 40px !important;
 		font-weight: 600 !important;
 		letter-spacing: normal;
 		text-indent: 0;
-		border-radius: 7px;
+		border-radius: 10px;
 		overflow: hidden;
 	}
 
@@ -304,16 +291,15 @@
 <body>
 	<div class="wrap click0">
 		<div class="banner_img obj0_img"></div>
-		<div class="banner_header">
-			<div class="live"><img src="../img/img_live.svg" alt="쇼핑라이브"></div>
-			<!-- 방송 .active || .no_active -->
-			<div class="state_wrap active"><span class="state">방송 중</span></div>
-			<div class="state_wrap no_active"><span class="state s_date"></span><span class="state">LIVE 알림예약</span></div>
-		</div>
 		<div class="banner_body">
 			<div class="box">
-				<h1 class="time_title_use_yn"><span class="title_text1">아르기닌으로</span><br><span class="title_text2">활기찬
-						하루!</span>
+				<div class="label_wrap">
+					<div class="live"><img src="../img/img_live2.svg" alt="쇼핑라이브"></div>
+					<!-- 방송 .active || .no_active -->
+					<div class="no_active"><span class="state s_date"></span></div>
+				</div>
+				<h1 class="time_title_use_yn">
+					<span class="title_text1">캠핑의자</span> <span class="title_text2">여기서사면 특가!</span>
 				</h1>
 				<div class="time_product_use_yn">
 					<div class="price_wrap">
@@ -323,24 +309,27 @@
 				</div>
 			</div>
 			<!-- 방송 .active || .no_active -->
-			<div class="live_go active"><span class="s_time">방송종료</span>
-				<div class="tick" data-did-init="tickInit2">
-					<div data-repeat="true" data-layout="horizontal fit" data-transform="preset(h, m, s) -> delay">
-						<div class="tick-group">
-							<div data-key="value" data-transform="pad(00)" data-view="flip">
-								<span>dds</span>
-							</div>
+			<div class="state_wrap active"><span class="state">방송 중</span></div>
+			<div class="state_wrap no_active"><span class="state">알림예약</span></div>
+		</div>
+		<!-- 방송 .active || .no_active -->
+		<div class="live_go active"><span class="s_time">방송종료</span>
+			<div class="tick" data-did-init="tickInit2">
+				<div data-repeat="true" data-layout="horizontal fit" data-transform="preset(h, m, s) -> delay">
+					<div class="tick-group">
+						<div data-key="value" data-transform="pad(00)" data-view="flip">
+							<span>dds</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="live_go no_active"><span class="s_time">방송시작</span>
-				<div class="tick" data-did-init="tickInit">
-					<div data-repeat="true" data-layout="horizontal fit" data-transform="preset(h, m, s) -> delay">
-						<div class="tick-group">
-							<div data-key="value" data-transform="pad(00)" data-view="flip">
-								<span>dds</span>
-							</div>
+		</div>
+		<div class="live_go no_active"><span class="s_time">방송시작</span>
+			<div class="tick" data-did-init="tickInit">
+				<div data-repeat="true" data-layout="horizontal fit" data-transform="preset(h, m, s) -> delay">
+					<div class="tick-group">
+						<div data-key="value" data-transform="pad(00)" data-view="flip">
+							<span>dds</span>
 						</div>
 					</div>
 				</div>

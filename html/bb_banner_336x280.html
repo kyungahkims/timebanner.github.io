@@ -5,7 +5,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-	<title>300x250</title>
+	<title>336x280</title>
 	<link rel="stylesheet" type="text/css" href="//img.mobon.net/Frtb/common/css/mobon_reset.css?201706292">
 	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/jquery.js"></script>
 	<script type="text/javascript" src="//img.mobon.net/js/mobonStorage.js"></script>
@@ -45,8 +45,8 @@
 		align-items: center;
 		flex-direction: column;
 		position: relative;
-		width: 300px;
-		height: 250px;
+		width: 336px;
+		height: 280px;
 		font-family: Pretendard;
 		color: #000;
 		overflow: hidden;
@@ -67,8 +67,6 @@
 		justify-content: space-between;
 		align-items: flex-start;
 		width: 100%;
-		text-align: center;
-		text-align: right;
 		padding: 10px;
 	}
 
@@ -111,6 +109,12 @@
 		}
 	}
 
+	.state_wrap {
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+	}
+
 	.state {
 		display: flex;
 		justify-content: center;
@@ -132,7 +136,6 @@
 	}
 
 	.state_wrap.no_active span:nth-child(1) {
-		display: inline-flex;
 		background-color: #7320fc;
 		margin-bottom: 6px;
 	}
@@ -140,6 +143,7 @@
 	.state_wrap.no_active span:nth-child(1)::after {
 		width: auto;
 		background: none;
+		margin-left: 0;
 	}
 
 	.state_wrap.no_active span:nth-child(2)::after {
@@ -169,6 +173,17 @@
 		color: #fff;
 	}
 
+	.box p {
+		font-size: 22px;
+		font-weight: bold;
+		color: #fff;
+		white-space: wrap;
+		display: none;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		overflow: hidden;
+	}
+
 	.price_wrap {
 		display: flex;
 		justify-content: space-between;
@@ -192,7 +207,7 @@
 	}
 
 	.live_go {
-		height: 48px;
+		height: 66px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -226,9 +241,9 @@
 	}
 
 	.live_go .s_time {
-		font-size: 16px;
+		font-size: 19px;
 		font-weight: 300;
-		margin-right: 10px;
+		margin-right: 17px;
 	}
 
 	.active {
@@ -250,9 +265,9 @@
 
 	.tick-group:not(:last-child)::after {
 		position: absolute;
-		top: 5px;
+		top: 7px;
 		right: -7px;
-		font-size: 16px;
+		font-size: 18px;
 		content: ":";
 	}
 
@@ -261,12 +276,12 @@
 	}
 
 	.tick-flip {
-		max-width: 41px !important;
-		min-width: 41px !important;
-		max-height: 33px !important;
-		min-height: 33px !important;
+		max-width: 54px !important;
+		min-width: 54px !important;
+		max-height: 44px !important;
+		min-height: 44px !important;
 		font-family: Pretendard !important;
-		font-size: 23px !important;
+		font-size: 30px !important;
 		font-weight: 600 !important;
 		letter-spacing: normal;
 		text-indent: 0;
@@ -308,12 +323,12 @@
 			<div class="live"><img src="../img/img_live.svg" alt="쇼핑라이브"></div>
 			<!-- 방송 .active || .no_active -->
 			<div class="state_wrap active"><span class="state">방송 중</span></div>
-			<div class="state_wrap no_active"><span class="state s_date"></span><span class="state">LIVE 알림예약</span></div>
+			<div class="state_wrap no_active"><span class="state s_date"></span><span class="state">알림예약</span></div>
 		</div>
 		<div class="banner_body">
 			<div class="box">
-				<h1 class="time_title_use_yn"><span class="title_text1">아르기닌으로</span><br><span class="title_text2">활기찬
-						하루!</span>
+				<h1 class="time_title_use_yn">
+					<span class="title_text1">아르기닌으로</span><br><span class="title_text2">활기찬 하루!</span>
 				</h1>
 				<div class="time_product_use_yn">
 					<div class="price_wrap">

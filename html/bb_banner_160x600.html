@@ -5,7 +5,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-	<title>300x250</title>
+	<title>160x600</title>
 	<link rel="stylesheet" type="text/css" href="//img.mobon.net/Frtb/common/css/mobon_reset.css?201706292">
 	<script type="text/javascript" src="//img.mobon.net/Frtb/common/script/jquery.js"></script>
 	<script type="text/javascript" src="//img.mobon.net/js/mobonStorage.js"></script>
@@ -40,79 +40,112 @@
 
 	/* wrap */
 	.wrap {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		flex-direction: column;
-		position: relative;
-		width: 300px;
-		height: 250px;
+		width: 160px;
+		height: 600px;
 		font-family: Pretendard;
+		text-align: center;
 		color: #000;
 		overflow: hidden;
 	}
 
-	.wrap::before {
-		content: "";
+	.banner_img {
 		position: absolute;
-		bottom: 40px;
-		z-index: -1;
+		top: 0;
 		width: 100%;
-		height: 86px;
-		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) 78%);
-	}
-
-	.banner_header {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-		width: 100%;
-		text-align: center;
-		text-align: right;
-		padding: 10px;
-	}
-
-	.live {
-		position: relative;
 		height: 100%;
+		z-index: -2;
 	}
 
 	.live img {
 		position: absolute;
-		top: 0;
+		top: 30px;
+		left: calc(50% - 40px);
 		max-width: 80px;
 		animation: live 1s ease-in Infinite Alternate;
 	}
 
 	@keyframes live {
 		0% {
-			top: 0px;
+			top: 30px;
 			transform: scale(1);
 		}
 
 		20% {
-			top: -5px;
+			top: 22px;
 			transform: scale(1);
 		}
 
 		40% {
-			top: 0px;
+			top: 30px;
 			transform: scale(1);
 		}
 
 		60% {
-			top: 0px;
+			top: 30px;
 			transform: scale(1);
 		}
 
 		to {
-			top: -5px;
+			top: 22px;
 			transform: scale(1.05);
 		}
 	}
 
+	.box {
+		font-size: 12px;
+		margin: 76px 5px 0;
+	}
+
+	h1 {
+		font-size: 30px;
+		font-weight: bold;
+		letter-spacing: -0.75px;
+		color: #000;
+	}
+
+	.price_wrap {
+		position: relative;
+	}
+
+	.price_wrap::before {
+		content: "SALE";
+		display: inline-block;
+		width: 98px;
+		color: #fff700;
+		height: 98px;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 3.4;
+		background: url('../img/ico_sale.svg') no-repeat center;
+		margin-top: 10px;
+	}
+
+	.price_wrap>div {
+		position: absolute;
+		bottom: 19px;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 36px;
+		font-weight: bold;
+		letter-spacing: -0.9px;
+		color: #fff;
+	}
+
+	.banner_body {
+		width: 100%;
+	}
+
+	.state_wrap {
+		justify-content: center;
+	}
+
 	.state {
-		display: flex;
+		display: inline-flex;
 		justify-content: center;
 		align-items: center;
 		height: 24px;
@@ -120,6 +153,7 @@
 		color: #fff;
 		padding: 5px 8px;
 		background-color: #ff1d1d;
+		margin-bottom: 10px;
 	}
 
 	.state::after {
@@ -132,7 +166,6 @@
 	}
 
 	.state_wrap.no_active span:nth-child(1) {
-		display: inline-flex;
 		background-color: #7320fc;
 		margin-bottom: 6px;
 	}
@@ -140,60 +173,17 @@
 	.state_wrap.no_active span:nth-child(1)::after {
 		width: auto;
 		background: none;
+		margin-left: 0;
 	}
 
 	.state_wrap.no_active span:nth-child(2)::after {
 		background: url('../img/ico_alert2.png') no-repeat center/contain;
 	}
 
-	.banner_img {
-		position: absolute;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -2;
-	}
-
-	.banner_body {
-		width: 100%;
-	}
-
-	.box {
-		font-size: 12px;
-		margin: 10px 15px;
-	}
-
-	h1 {
-		font-size: 22px;
-		font-weight: bold;
-		color: #fff;
-	}
-
-	.price_wrap {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		color: #fff;
-		margin-top: 3px;
-	}
-
-	.red {
-		font-size: 16px;
-		font-weight: bold;
-		color: #ff1d1d;
-	}
-
-	.price {
-		font-size: 16px;
-		font-weight: bold;
-		color: #fff;
-		margin-left: 3px;
-		margin-right: 2px;
-	}
-
 	.live_go {
-		height: 48px;
+		height: 90px;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		font-weight: 600;
@@ -226,9 +216,9 @@
 	}
 
 	.live_go .s_time {
-		font-size: 16px;
+		font-size: 18px;
 		font-weight: 300;
-		margin-right: 10px;
+		margin-bottom: 10px;
 	}
 
 	.active {
@@ -237,7 +227,7 @@
 
 	/* tick */
 	.tick>div {
-		column-gap: 9px;
+		column-gap: 7px;
 	}
 
 	.tick-flip {
@@ -249,11 +239,11 @@
 	}
 
 	.tick-group:not(:last-child)::after {
-		position: absolute;
-		top: 5px;
-		right: -7px;
-		font-size: 16px;
 		content: ":";
+		position: absolute;
+		top: 3px;
+		right: -6px;
+		font-size: 18px;
 	}
 
 	.tick .tick-credits {
@@ -261,12 +251,12 @@
 	}
 
 	.tick-flip {
-		max-width: 41px !important;
-		min-width: 41px !important;
-		max-height: 33px !important;
-		min-height: 33px !important;
+		max-width: 44px !important;
+		min-width: 44px !important;
+		max-height: 35px !important;
+		min-height: 35px !important;
 		font-family: Pretendard !important;
-		font-size: 23px !important;
+		font-size: 24px !important;
 		font-weight: 600 !important;
 		letter-spacing: normal;
 		text-indent: 0;
@@ -306,22 +296,21 @@
 		<div class="banner_img obj0_img"></div>
 		<div class="banner_header">
 			<div class="live"><img src="../img/img_live.svg" alt="쇼핑라이브"></div>
-			<!-- 방송 .active || .no_active -->
-			<div class="state_wrap active"><span class="state">방송 중</span></div>
-			<div class="state_wrap no_active"><span class="state s_date"></span><span class="state">LIVE 알림예약</span></div>
-		</div>
-		<div class="banner_body">
 			<div class="box">
-				<h1 class="time_title_use_yn"><span class="title_text1">아르기닌으로</span><br><span class="title_text2">활기찬
-						하루!</span>
+				<h1 class="time_title_use_yn">
+					<span class="title_text1">아르기닌으로</span><br><span class="title_text2">활기찬 하루!</span>
 				</h1>
 				<div class="time_product_use_yn">
 					<div class="price_wrap">
-						<div><span class="red"><span class="time_product_sale_rate">65</span>%</span><span
-								class="price time_product_sale_price">45,600</span>원</div>
+						<div><span class="time_product_sale_rate">65</span>%</div>
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="banner_body">
+			<!-- 방송 .active || .no_active -->
+			<div class="state_wrap active"><span class="state">방송 중</span></div>
+			<div class="state_wrap no_active"><span class="state s_date"></span><span class="state">알림예약</span></div>
 			<!-- 방송 .active || .no_active -->
 			<div class="live_go active"><span class="s_time">방송종료</span>
 				<div class="tick" data-did-init="tickInit2">

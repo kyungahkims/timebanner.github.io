@@ -63,6 +63,14 @@
 		background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 61%);
 	}
 
+	.banner_img {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -2;
+	}
+
 	.banner_header {
 		flex: 1;
 		width: 100%;
@@ -157,14 +165,6 @@
 
 	.state_wrap.no_active span:nth-child(2)::after {
 		background: url('../img/ico_alert2.png') no-repeat center;
-	}
-
-	.banner_img {
-		position: absolute;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -2;
 	}
 
 	.banner_body {
@@ -335,15 +335,15 @@
 
 <body>
 	<div class="wrap click0">
+		<div class="banner_img obj0_img"></div>
 		<div class="banner_header">
-			<div class="live"><img src="../img/live_logo.svg" alt="쇼핑라이브"></div>
+			<div class="live"><img src="../img/img_live.svg" alt="쇼핑라이브"></div>
 			<h1 class="time_title_use_yn"><span class="title_text1">아르기닌으로</span><br><span class="title_text2">활기찬 하루!</span>
 			</h1>
 			<!-- 방송 .active || .no_active -->
 			<div class="state_wrap active"><span class="state">방송 중</span></div>
 			<div class="state_wrap no_active"><span class="state s_date"></span><span class="state">LIVE 알림예약</span></div>
 		</div>
-		<div class="banner_img obj0_img"></div>
 		<div class="banner_body">
 			<div class="box time_product_use_yn">
 				<p class="time_product_name">익스트림 트리플 아르기닌 6200 30포 x3 익스트림 트리플 아르기닌 6200 30포 x3</p>
